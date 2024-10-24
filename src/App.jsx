@@ -75,7 +75,6 @@ function App() {
     setLogEntries([]);
 
     const shuffleObj = createShuffleCardsObj();
-
     setCards(shuffleObj);
   };
 
@@ -91,7 +90,6 @@ function App() {
     const clickedCard = cards.find((card) => card.id === id);
     if (clickedCard.matched || clickedCard.flipped) return;
 
-    // Flip the clicked card
     const updatedCards = cards.map((card) =>
       card.id === id ? { ...card, flipped: true } : card
     );
@@ -109,16 +107,20 @@ function App() {
       );
       const isMatch = firstCard.image === secondCard.image;
 
-      // Log the turn result
       const newEntry = createLogEntry(isMatch);
       setLogEntries((prev) => [...prev, newEntry]);
 
       if (isMatch) {
-        // Update matched cards and clear flipped cards
+        const updatedMatchedCards = updatedCards.map((card) => {
+          if (card.id === firstCard.id || card.id === secondCard.id) {
+            return { ...card, matched: true }; // Mark as matched
+          }
+          return card;
+        });
+        setCards(updatedMatchedCards); // Update the cards state
         setMatchedCards((prev) => [...prev, firstCard.id, secondCard.id]);
         setFlippedCards([]);
       } else {
-        // If no match, flip back after timeout
         setTimeout(() => {
           setCards((prevCards) =>
             prevCards.map((card) =>
@@ -127,20 +129,26 @@ function App() {
                 : card
             )
           );
-          setFlippedCards([]); // Clear flipped cards after flipping back
+          setFlippedCards([]);
         }, 400);
       }
 
-      // Increment turns
       setTurns((prev) => prev + 1);
     }
   };
 
   useEffect(() => {
     if (cards.length === 0) return;
-    if (cards.every((card) => card.matched) || turns >= turnsToEndGame) {
+    const allCardsMatched = cards.every((card) => card.matched);
+    const turnsToGameOver = turns >= turnsToEndGame;
+
+    // Debugging logs
+    console.log("All Cards Matched:", allCardsMatched);
+    console.log("Turns to Game Over:", turnsToGameOver);
+
+    if (allCardsMatched || turnsToGameOver) {
       setGameOver(true);
-      if (cards.every((card) => card.matched)) {
+      if (allCardsMatched) {
         setFeedback(`Congratulations! You won in ${turns} turns.`);
         setFeedbackColor("success");
       } else {
