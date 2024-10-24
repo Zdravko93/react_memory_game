@@ -1,0 +1,35 @@
+.game-log {
+  background: linear-gradient(135deg, #4e73df, #2a4e8f);
+}
+
+.game-log h3 {
+  color: orange;
+  padding-left: 0.3em;
+  text-align: center;
+}
+
+.log-entries {
+  background: #000;
+  box-shadow: 0 0 10px 2px orange;
+}
+
+.log-entry {
+  padding: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.turn {
+  color: orange;
+}
+
+.checkmark {
+  color: green;
+  font-size: 20px;
+}
+
+.cross {
+  color: red;
+  font-size: 20px;
+}

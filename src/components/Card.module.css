@@ -1,0 +1,76 @@
+.cards {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transition: opacity 500ms ease, transform 500ms ease;
+
+  /* 3D perspective */
+  perspective: 1000px;
+}
+
+.cards:hover {
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 1);
+}
+
+.cards.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.front-card,
+.back-card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  backface-visibility: hidden;
+  transition: transform 500ms ease;
+  transform-style: preserve-3d; /* Ensures the 3D effect is preserved */
+}
+
+/* Position front face */
+.front-card {
+  z-index: 2;
+  transform: rotateY(180deg); /* Initially hide the front face */
+}
+
+/* Position the back face and show it by default */
+.cards .back-card {
+  z-index: 1;
+  transform: rotateY(0deg); /* Back face is shown by default */
+}
+
+/* Flip effect: when the card has the 'flipped' class */
+.cards.flipped .front-card {
+  transform: rotateY(0deg); /* Front face rotates to the front */
+}
+
+.cards.flipped .back-card {
+  transform: rotateY(180deg); /* Back face rotates to the back */
+}
+
+/* matching cards styles  */
+.cards.matched {
+  animation: matchAnimation 1000ms 350ms ease forwards;
+}
+
+/* ANIMATIONS */
+@keyframes matchAnimation {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

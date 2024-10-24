@@ -1,0 +1,29 @@
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: linear-gradient(135deg, #4e73df, #2a4e8f);
+  border-radius: 5px;
+  color: white;
+  padding: 0.8em 1em;
+  animation: button-fade-in 2s;
+  transition: box-shadow 100ms;
+  display: block;
+  margin: 5em auto 0em auto;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #2a4e8f, #4e73df);
+  box-shadow: 0 2px 20px rgba(255, 255, 255, 0.32);
+}
+
+@keyframes button-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
