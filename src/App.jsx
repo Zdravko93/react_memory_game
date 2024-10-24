@@ -58,9 +58,13 @@ function App() {
     return shuffledCardsObj;
   };
 
-  useEffect(() => {
+  const resetAndShuffleCards = () => {
     const shuffleObj = createShuffleCardsObj();
     setCards(shuffleObj);
+  };
+
+  useEffect(() => {
+    resetAndShuffleCards();
   }, []);
 
   const handleStartGame = () => {
@@ -74,8 +78,7 @@ function App() {
     setIsGameStarted(true);
     setLogEntries([]);
 
-    const shuffleObj = createShuffleCardsObj();
-    setCards(shuffleObj);
+    resetAndShuffleCards();
   };
 
   const createLogEntry = (isMatch) => ({
