@@ -45,7 +45,7 @@ function App() {
     }));
   };
 
-  useEffect(() => {
+  const createShuffleCardsObj = () => {
     const pairedCards = [...cardImagePaths, ...cardImagePaths];
     const shuffledCards = pairedCards.sort(() => Math.random() - 0.5);
     const shuffledCardsObj = resetCards(
@@ -55,7 +55,12 @@ function App() {
       }))
     );
 
-    setCards(shuffledCardsObj);
+    return shuffledCardsObj;
+  };
+
+  useEffect(() => {
+    const shuffleObj = createShuffleCardsObj();
+    setCards(shuffleObj);
   }, []);
 
   const handleStartGame = () => {
@@ -67,17 +72,11 @@ function App() {
     setFeedback("");
     setFeedbackColor("");
     setIsGameStarted(true);
+    setLogEntries([]);
 
-    const pairedCards = [...cardImagePaths, ...cardImagePaths];
-    const shuffledCards = pairedCards.sort(() => Math.random() - 0.5);
-    const shuffledCardsObj = resetCards(
-      shuffledCards.map((card, index) => ({
-        id: `${card} ${index}`,
-        image: card,
-      }))
-    );
+    const shuffleObj = createShuffleCardsObj();
 
-    setCards(shuffledCardsObj);
+    setCards(shuffleObj);
   };
 
   const createLogEntry = (isMatch) => ({
@@ -129,7 +128,7 @@ function App() {
             )
           );
           setFlippedCards([]); // Clear flipped cards after flipping back
-        }, 1000);
+        }, 400);
       }
 
       // Increment turns
