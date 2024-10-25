@@ -27,6 +27,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [gameOpacity, setGameOpacity] = useState(0.3);
   const [flippedCards, setFlippedCards] = useState([]);
+  const [isFlippingBack, setIsFlippingBack] = useState(false);
   const [matchedCards, setMatchedCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -87,7 +88,8 @@ function App() {
   });
 
   const handleCardClick = (id) => {
-    if (!isGameStarted || gameOver) return;
+    console.log(isGameStarted, gameOver, isFlippingBack);
+    if (!isGameStarted || gameOver || isFlippingBack) return;
 
     const clickedCard = cards.find((card) => card.id === id);
     if (clickedCard.matched || clickedCard.flipped) return;
@@ -123,6 +125,8 @@ function App() {
         setMatchedCards((prev) => [...prev, firstCard.id, secondCard.id]);
         setFlippedCards([]);
       } else {
+        // card is flipping
+        setIsFlippingBack(true);
         setTimeout(() => {
           setCards((prevCards) =>
             prevCards.map((card) =>
@@ -132,6 +136,7 @@ function App() {
             )
           );
           setFlippedCards([]);
+          setIsFlippingBack(false);
         }, 400);
       }
 
@@ -144,10 +149,6 @@ function App() {
 
     const allCardsMatched = cards.every((card) => card.matched);
     const turnsToGameOver = turns >= turnsToEndGame;
-
-    // Debugging logs
-    console.log("All Cards Matched:", allCardsMatched);
-    console.log("Turns to Game Over:", turnsToGameOver);
 
     if (allCardsMatched || turnsToGameOver) {
       setGameOver(true);
@@ -203,4 +204,5 @@ function App() {
 export default App;
 
 // 1. User MUST NOT be able to interact with cards before chosen pair  of cards flipps back or matches
+// srediti isFlippingState
 // 2. USer MUST BE able to flip the chosed card back (in every cycle its the first card) in case he misclicked or he changes his mind etc
