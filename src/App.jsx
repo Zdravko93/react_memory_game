@@ -93,8 +93,7 @@ function App() {
 
     const clickedCard = cards.find((card) => card.id === id);
 
-    // after selecting each first card in the flippedCards array
-    // in case that card is alredy being selected flip it back/deselect the card
+    // in case card is already selected, flip it back/deselect the card
     if (flippedCards.length === 1 && flippedCards[0] === id) {
       const updatedCards = cards.map((card) =>
         card.id === id ? { ...card, flipped: false } : card
