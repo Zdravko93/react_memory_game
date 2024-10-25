@@ -202,7 +202,3 @@ function App() {
 }
 
 export default App;
-
-// 1. User MUST NOT be able to interact with cards before chosen pair  of cards flipps back or matches
-// srediti isFlippingState
-// 2. USer MUST BE able to flip the chosed card back (in every cycle its the first card) in case he misclicked or he changes his mind etc
