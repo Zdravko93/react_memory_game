@@ -26,7 +26,7 @@ The goal of the game is to match pairs of cards. Users can:
 
 ### Screenshot
 
-![Memory Game Screenshot](./public/screenshot-memory-game.png)
+![Memory Game Screenshot](./react-memory-game.png)
 
 ### Links
 
