@@ -1,16 +1,18 @@
 .main-wrapper {
-  margin-top: 6em;
   padding: 10px;
-  box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.7);
   border-radius: 5px;
 
   transition: opacity 300ms ease;
 }
 
 .cards-grid {
-  padding: 0.3em;
+  padding: 0.6em;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   grid-gap: 1em;
+}
+
+.cards-grid.active {
+  box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.7);
 }

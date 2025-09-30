@@ -12,7 +12,7 @@ export function useAppState() {
     dispatch({ type: "FLIP_CARD", payload: { id } });
   };
 
-  // Evaluate two flipped cards after short delay
+  // Flip evaluation logic
   useEffect(() => {
     if (state.flippedCards.length === 2) {
       const timeout = setTimeout(() => {
@@ -22,7 +22,7 @@ export function useAppState() {
     }
   }, [state.flippedCards]);
 
-  // Check if game is over
+  // Game Over check
   useEffect(() => {
     if (!state.gameStarted || state.gameOver) return;
 

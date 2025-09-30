@@ -22,12 +22,26 @@ function App() {
         />
       ) : (
         <>
-          <Header onStartGame={startGame} />
+          <Header
+            onStartGame={startGame}
+            showStartbutton={
+              !state.gameStarted || (state.gameStarted && state.turns > 0)
+            }
+            label={
+              state.turns > 0 || state.gameOver ? "Restart Game" : "Start Game"
+            }
+          />
           <main
             style={{ opacity: state.gameStarted ? 1 : 0.3 }}
             className={classes["main-wrapper"]}
           >
-            <div className={classes["cards-grid"]}>
+            <div
+              className={
+                state.cards.length > 0
+                  ? `${classes["cards-grid"]} ${classes.active}`
+                  : classes["cards-grid"]
+              }
+            >
               {state.cards.map((card) => (
                 <Card
                   key={card.id}

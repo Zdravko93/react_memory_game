@@ -9,9 +9,9 @@
   animation: button-fade-in 2s;
   transition: box-shadow 100ms;
   display: block;
-  margin: 5em auto 0em auto;
   text-transform: uppercase;
   font-weight: bold;
+  text-align: center;
 }
 
 .button:hover {

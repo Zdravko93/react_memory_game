@@ -8,6 +8,15 @@ h1 {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
 }
 
+.button-container {
+  margin-top: 4em;
+  margin-bottom: 4em;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes glow {
   0% {
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
