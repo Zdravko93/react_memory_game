@@ -1,11 +1,9 @@
 import classes from "./Button.module.css";
 
-function Button({ children, onStartGame }) {
+export default function Button({ onClick, children }) {
   return (
-    <button onClick={onStartGame} className={classes.button}>
+    <button onClick={onClick} className={classes.button}>
       {children}
     </button>
   );
 }
-
-export default Button;

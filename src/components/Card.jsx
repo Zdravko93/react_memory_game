@@ -1,6 +1,6 @@
 import classes from "./Card.module.css";
 
-function Card({
+export default function Card({
   cardImage,
   coverImage,
   id,
@@ -13,7 +13,7 @@ function Card({
     <div
       className={`${classes.cards} ${flipped ? classes.flipped : ""} ${
         matched ? classes.matched : ""
-      } ${classes[className]}`}
+      } ${className}`}
       id={id}
       onClick={() => onClick(id)}
     >
@@ -22,5 +22,3 @@ function Card({
     </div>
   );
 }
-
-export default Card;

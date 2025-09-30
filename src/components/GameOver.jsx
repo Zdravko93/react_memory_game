@@ -1,6 +1,6 @@
 import classes from "./GameOver.module.css";
 
-function GameOver({ feedbackText, feedbackColor, onRestart }) {
+export default function GameOver({ feedbackText, feedbackColor, onRestart }) {
   return (
     <div className={`${classes.modal}`}>
       <h2>Game Over!</h2>
@@ -11,5 +11,3 @@ function GameOver({ feedbackText, feedbackColor, onRestart }) {
     </div>
   );
 }
-
-export default GameOver;
