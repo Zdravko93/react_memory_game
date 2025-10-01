@@ -1,5 +1,5 @@
 .main-wrapper {
-  width: 1200px;
+  max-width: 1200px;
   margin: auto;
   width: 100%;
   padding: 1rem;
@@ -22,7 +22,7 @@
 }
 
 /* MEDIA QUERIES */
-/* Mobile:  */
+/* Mobile */
 @media (max-width: 480px) {
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);

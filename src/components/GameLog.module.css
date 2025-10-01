@@ -43,7 +43,7 @@
 }
 
 /* MEDIA QUERIES */
-@media (min-width: 600px) {
+@media (min-width: 480px) {
   .game-log h3 {
     font-size: 1rem;
   }
