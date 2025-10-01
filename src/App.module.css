@@ -1,18 +1,44 @@
 .main-wrapper {
-  padding: 10px;
+  width: 1200px;
+  margin: auto;
+  width: 100%;
+  padding: 1rem;
   border-radius: 5px;
 
   transition: opacity 300ms ease;
 }
 
+/* Here I am taking mobile-first approach */
 .cards-grid {
-  padding: 0.6em;
   display: grid;
-  place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  grid-gap: 1em;
+  gap: 1rem;
+  justify-items: center;
+  width: 100%;
+  padding: 1rem;
 }
 
 .cards-grid.active {
   box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.7);
+}
+
+/* MEDIA QUERIES */
+/* Mobile:  */
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 901px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

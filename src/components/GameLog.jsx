@@ -8,7 +8,7 @@ export default function GameLog({ logEntries }) {
         {logEntries.map((entry, index) => (
           <div className={classes["log-entry"]} key={index}>
             <span className={classes.turn}>{`Turn ${entry.turn}`}</span>
-            <span>{entry.time}</span>
+            <span className={classes.time}>{entry.time}</span>
             <span className={entry.match ? classes.checkmark : classes.cross}>
               {entry.match ? "✓" : "✖"}
             </span>

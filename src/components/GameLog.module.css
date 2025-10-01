@@ -1,11 +1,14 @@
 .game-log {
-  background: linear-gradient(135deg, #4e73df, #2a4e8f);
+  margin: 2.5em 0 3.5em 0;
+  max-width: 500px;
+  margin: auto;
 }
 
 .game-log h3 {
   color: orange;
   padding-left: 0.3em;
   text-align: center;
+  font-size: 0.9rem;
 }
 
 .log-entries {
@@ -20,16 +23,48 @@
   justify-content: space-around;
 }
 
+.turn,
+.time,
+.checkmark,
+.cross {
+  font-size: 0.7rem;
+}
+
 .turn {
   color: orange;
 }
 
 .checkmark {
   color: green;
-  font-size: 20px;
 }
 
 .cross {
   color: red;
-  font-size: 20px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 600px) {
+  .game-log h3 {
+    font-size: 1rem;
+  }
+
+  .turn,
+  .time,
+  .checkmark,
+  .cross {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 780px) {
+  .game-log h3 {
+    font-size: 1.1rem;
+  }
+
+  .turn,
+  .time,
+  .checkmark,
+  .cross {
+    font-size: 0.9rem;
+  }
 }
