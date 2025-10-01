@@ -10,7 +10,7 @@ import coverLogo from "./assets/cover.png";
 import { useAppState } from "./customHooks/useAppState";
 
 function App() {
-  const { state, startGame, flipCard } = useAppState();
+  const { state, startGame, flipCard, turnsLeft } = useAppState();
 
   return (
     <>
@@ -30,6 +30,8 @@ function App() {
             label={
               state.turns > 0 || state.gameOver ? "Restart Game" : "Start Game"
             }
+            turnsLeft={turnsLeft}
+            showTurns={state.gameStarted}
           />
           <main
             style={{ opacity: state.gameStarted ? 1 : 0.3 }}

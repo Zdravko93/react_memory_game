@@ -28,24 +28,33 @@ export function useAppState() {
 
     const allMatched =
       state.cards.length && state.cards.every((card) => card.matched);
-    const outOfTurns = state.turns >= 13;
+    const outOfTurns = state.turns >= state.maxTurns;
 
     if (allMatched || outOfTurns) {
       dispatch({
         type: "SET_GAME_OVER",
         payload: {
           message: allMatched
-            ? `Congratulations! You won in ${state.turns} turns.`
+            ? `Congratulations! You won in ${state.maxTurns} turns.`
             : "You ran out of turns. Better luck next time!",
           type: allMatched ? "success" : "failed",
         },
       });
     }
-  }, [state.cards, state.turns, state.gameStarted, state.gameOver]);
+  }, [
+    state.cards,
+    state.turns,
+    state.maxTurns,
+    state.gameStarted,
+    state.gameOver,
+  ]);
+
+  const turnsLeft = state.maxTurns - state.turns;
 
   return {
     state,
     startGame,
     flipCard,
+    turnsLeft,
   };
 }

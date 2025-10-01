@@ -6,6 +6,7 @@ export const initialState = {
   flippedCards: [],
   matchedCards: [],
   turns: 0,
+  maxTurns: 13,
   gameStarted: false,
   gameOver: false,
   feedback: { message: "", type: "" },
@@ -16,10 +17,13 @@ export function gameReducer(state, action) {
   switch (action.type) {
     case "START_GAME": {
       const shuffledCards = shuffleCards(cardImagePaths);
+      const randomMaxTurns = Math.floor(Math.random() * 6) + 12;
+
       return {
         ...initialState,
         cards: shuffledCards,
         gameStarted: true,
+        maxTurns: randomMaxTurns,
       };
     }
 
