@@ -4,7 +4,13 @@ import { gameReducer, initialState } from "../reducers/memoryGameReducer";
 export function useAppState() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
-  const startGame = () => dispatch({ type: "START_GAME" });
+  const showDifficultySelector = () => {
+    dispatch({ type: "SHOW_DIFFICULTY_SELECTOR" });
+  };
+
+  const startGame = (difficulty = "easy") => {
+    dispatch({ type: "START_GAME", payload: { difficulty } });
+  };
 
   const flipCard = (id) => {
     if (state.gameOver || !state.gameStarted || state.flippedCards.length >= 2)
@@ -56,5 +62,6 @@ export function useAppState() {
     startGame,
     flipCard,
     turnsLeft,
+    showDifficultySelector,
   };
 }

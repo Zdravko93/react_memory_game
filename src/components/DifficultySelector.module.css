@@ -1,0 +1,78 @@
+.difficulty-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.difficulty {
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+  color: #f4f4f4;
+}
+
+.difficulty h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #f9f9f9;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.difficulty button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  width: 280px;
+  text-align: left;
+}
+
+.difficulty button:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.easy {
+  background-color: #4caf50;
+  color: white;
+}
+
+.easy:hover {
+  background-color: #43a047;
+}
+
+.medium {
+  background-color: #ff9800;
+  color: white;
+}
+
+.medium:hover {
+  background-color: #fb8c00;
+}
+
+.hard {
+  background-color: #f44336;
+  color: white;
+}
+
+.hard:hover {
+  background-color: #e53935;
+}

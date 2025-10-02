@@ -1,12 +1,18 @@
-import { shuffleCards, createLogEntry } from "../utils/gameHelpers";
+import {
+  shuffleCards,
+  createLogEntry,
+  getMaxTurnsFromDifficulty,
+} from "../utils/gameHelpers";
 import { cardImagePaths } from "../data/cardImages";
 
 export const initialState = {
   cards: [],
   flippedCards: [],
   matchedCards: [],
+  difficulty: "easy",
   turns: 0,
   maxTurns: 13,
+  showDifficultySelector: false,
   gameStarted: false,
   gameOver: false,
   feedback: { message: "", type: "" },
@@ -16,14 +22,24 @@ export const initialState = {
 export function gameReducer(state, action) {
   switch (action.type) {
     case "START_GAME": {
+      const { difficulty } = action.payload || {};
+      const maxTurns = getMaxTurnsFromDifficulty(difficulty || "easy");
       const shuffledCards = shuffleCards(cardImagePaths);
-      const randomMaxTurns = Math.floor(Math.random() * 6) + 12;
 
       return {
         ...initialState,
         cards: shuffledCards,
+        maxTurns,
+        difficulty: difficulty || "easy",
         gameStarted: true,
-        maxTurns: randomMaxTurns,
+        showDifficultySelector: false, // reset on game start
+      };
+    }
+
+    case "SHOW_DIFFICULTY_SELECTOR": {
+      return {
+        ...state,
+        showDifficultySelector: true,
       };
     }
 

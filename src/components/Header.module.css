@@ -20,7 +20,7 @@ h2 {
 }
 
 .button-container {
-  margin-top: 4em;
+  margin-top: 2.5em;
   margin-bottom: 4em;
   height: 3rem;
   display: flex;
@@ -43,7 +43,7 @@ h2 {
 
 .turns-left-number {
   color: pink;
-  font-size: 1.1rem;
+  font-size: 0.5rem;
 }
 
 .number-alert {
@@ -118,6 +118,14 @@ h2 {
   h2 {
     font-size: 1.4rem;
   }
+
+  .turns-left {
+    font-size: 1.1rem;
+  }
+
+  .turns-left-number {
+    font-size: 1.2rem;
+  }
 }
 
 @media (min-width: 780px) {
@@ -132,5 +140,13 @@ h2 {
 
   h2 {
     font-size: 1.65rem;
+  }
+
+  .turns-left {
+    font-size: 1.3rem;
+  }
+
+  .turns-left-number {
+    font-size: 1.3rem;
   }
 }

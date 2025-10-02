@@ -18,3 +18,16 @@ export function createLogEntry(turn, match) {
     match,
   };
 }
+
+export function getMaxTurnsFromDifficulty(level) {
+  switch (level) {
+    case "easy":
+      return 15;
+    case "medium":
+      return 10;
+    case "hard":
+      return 6;
+    default:
+      return 13;
+  }
+}
