@@ -7,6 +7,7 @@ import Card from "./components/Card";
 import GameOver from "./components/GameOver";
 import GameLog from "./components/GameLog";
 import DifficultySelector from "./components/DifficultySelector";
+import DifficultyDisplay from "./components/DifficultyDisplay";
 
 import { useAppState } from "./customHooks/useAppState";
 
@@ -66,8 +67,9 @@ export default function App() {
                 />
               ))}
             </div>
+            <GameLog logEntries={state.logEntries} />
           </main>
-          <GameLog logEntries={state.logEntries} />
+          <DifficultyDisplay difficulty={state.difficulty} />
         </>
       )}
     </>

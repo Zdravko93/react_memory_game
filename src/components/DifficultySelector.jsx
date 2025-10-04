@@ -31,7 +31,7 @@ export default function DifficultySelector({ onSelect }) {
           btnClassName={classes.hard}
           iconSrc={skullIcon}
           altText="Skull icon representing hard game difficulty"
-          label={'Hardcore Mode — "Test my luck 😵"'}
+          label={'Nightmare Mode — "Noo way 😵"'}
           onClick={() => onSelect("hard")}
         />
       </div>

@@ -1,0 +1,60 @@
+.difficulty-display {
+  position: fixed;
+  right: 1rem;
+  top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+
+  background-color: #ffffffcc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+
+  z-index: 1000;
+  min-width: 150px;
+  transition: all 0.3s ease;
+}
+
+.difficulty-display h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.difficulty-display p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.easy {
+  color: #28a745; /* green */
+}
+
+.medium {
+  color: #ffc107; /* yellow */
+}
+
+.hard {
+  color: #dc3545; /* red */
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .difficulty-display {
+    top: auto;
+    bottom: 1rem;
+    right: 2.5rem;
+    min-width: unset;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
