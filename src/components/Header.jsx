@@ -34,7 +34,11 @@ export default function Header({
       )}
 
       <div className={classes["button-container"]}>
-        {showRestartbutton && <Button onClick={onRestart}>Restart Game</Button>}
+        {showRestartbutton && (
+          <Button onClick={onRestart} className={classes["restart-game-btn"]}>
+            Restart Game
+          </Button>
+        )}
       </div>
     </header>
   );

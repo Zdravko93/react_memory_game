@@ -13,9 +13,8 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  min-width: 500px;
+  min-width: 300px;
   height: auto;
-
   background: linear-gradient(
     to left,
     rgba(143, 20, 180, 0.5),
@@ -23,13 +22,14 @@
   );
   box-shadow: 0 0 20px rgba(255, 211, 221, 0.5);
   text-align: center;
+  font-size: 0.75rem;
 
   z-index: 500;
 }
 
 .modal h2 {
   text-transform: uppercase;
-  font-size: 1.7rem;
+  font-size: 1rem;
 }
 
 .failed {
@@ -44,12 +44,12 @@
   border: none;
   outline: none;
   margin-top: 2em;
-  padding: 0.8em 2em;
+  padding: 0.45em 1.7em;
   background: green;
   color: yellow;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   opacity: 0.9;
   cursor: pointer;
 
@@ -58,4 +58,40 @@
 
 .actions button:hover {
   opacity: 1;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 480px) {
+  .modal {
+    font-size: 0.85rem;
+  }
+
+  .modal h2 {
+    font-size: 1.2rem;
+  }
+
+  .actions button {
+    padding: 0.6em 1.8em;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 780px) {
+  .modal {
+    font-size: 1rem;
+  }
+
+  .modal {
+    min-width: 500px;
+  }
+
+  .modal h2 {
+    font-size: 1.35rem;
+  }
+
+  .actions button {
+    padding: 0.8em 2em;
+    font-size: 0.85rem;
+  }
 }

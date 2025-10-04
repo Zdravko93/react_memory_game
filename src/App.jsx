@@ -1,4 +1,5 @@
 import classes from "./App.module.css";
+
 import coverLogo from "./assets/cover.png";
 
 import Header from "./components/Header";
@@ -35,7 +36,7 @@ export default function App() {
         <GameOver
           feedbackText={state.feedback.message}
           feedbackColor={state.feedback.type}
-          onRestart={startGame}
+          onRestart={restartGame}
         />
       )}
 

@@ -24,6 +24,7 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
 }
 
 img {
@@ -32,4 +33,8 @@ img {
   display: block;
   object-fit: cover;
   cursor: pointer;
+}
+
+button {
+  font-family: "Montserrat";
 }

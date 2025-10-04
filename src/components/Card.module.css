@@ -6,6 +6,7 @@
 
   perspective: 1000px;
   transition: opacity 500ms ease, transform 500ms ease;
+  background: transparent;
 }
 
 .cards:hover {
