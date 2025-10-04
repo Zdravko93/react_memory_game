@@ -12,7 +12,7 @@ export const initialState = {
   difficulty: "easy",
   turns: 0,
   maxTurns: 13,
-  showDifficultySelector: false,
+  showDifficultySelector: true,
   gameStarted: false,
   gameOver: false,
   feedback: { message: "", type: "" },
@@ -36,9 +36,9 @@ export function gameReducer(state, action) {
       };
     }
 
-    case "SHOW_DIFFICULTY_SELECTOR": {
+    case "RESTART_FLOW": {
       return {
-        ...state,
+        ...initialState,
         showDifficultySelector: true,
       };
     }

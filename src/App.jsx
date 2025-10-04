@@ -9,83 +9,23 @@ import DifficultySelector from "./components/DifficultySelector";
 
 import { useAppState } from "./customHooks/useAppState";
 
-// function App() {
-//   const { state, startGame, flipCard, turnsLeft, showDifficultySelector } =
-//     useAppState();
-
-//   return (
-//     <>
-//       {state.gameOver ? (
-//         <GameOver
-//           feedbackText={state.feedback.message}
-//           feedbackColor={state.feedback.type}
-//           onRestart={startGame}
-//         />
-//       ) : (
-//         <>
-//           <Header
-//             onStartGame={startGame}
-//             showStartbutton={
-//               !state.gameStarted || (state.gameStarted && state.turns > 0)
-//             }
-//             label={
-//               state.turns > 0 || state.gameOver ? "Restart Game" : "Start Game"
-//             }
-//             turnsLeft={turnsLeft}
-//             showTurns={state.gameStarted}
-//           />
-//           <main
-//             style={{ opacity: state.gameStarted ? 1 : 0.3 }}
-//             className={classes["main-wrapper"]}
-//           >
-//             <div
-//               className={
-//                 state.cards.length > 0
-//                   ? `${classes["cards-grid"]} ${classes.active}`
-//                   : classes["cards-grid"]
-//               }
-//             >
-//               {state.cards.map((card) => (
-//                 <Card
-//                   key={card.id}
-//                   id={card.id}
-//                   cardImage={card.image}
-//                   coverImage={coverLogo}
-//                   flipped={card.flipped}
-//                   matched={card.matched}
-//                   onClick={flipCard}
-//                 />
-//               ))}
-//             </div>
-//           </main>
-//           {state.gameStarted && <GameLog logEntries={state.logEntries} />}
-//         </>
-//       )}
-//     </>
-//   );
-// }
-
-// export default App;
-
-function App() {
-  const { state, startGame, flipCard, turnsLeft, showDifficultySelector } =
-    useAppState();
+export default function App() {
+  const { state, startGame, flipCard, turnsLeft, restartGame } = useAppState();
 
   return (
     <>
-      {/* Initial screen: show header with "Start Game" button */}
-      {!state.gameStarted &&
-        !state.gameOver &&
-        !state.showDifficultySelector && (
-          <Header
-            onStartGame={showDifficultySelector}
-            showStartbutton={true}
-            label="Start Game"
-            showTurns={false}
-          />
-        )}
+      {!state.gameOver && (
+        <Header
+          onRestart={restartGame}
+          showRestartbutton={
+            state.gameStarted && state.turns >= 1 && !state.gameOver
+          }
+          showTurns={state.gameStarted && !state.gameOver}
+          turnsLeft={turnsLeft}
+        />
+      )}
 
-      {/* Show Difficulty Selector after "Start Game" is clicked */}
+      {/* Show Difficulty Selector at initial screen */}
       {!state.gameStarted && state.showDifficultySelector && (
         <DifficultySelector onSelect={startGame} />
       )}
@@ -99,16 +39,9 @@ function App() {
         />
       )}
 
-      {/* Game UI during play */}
+      {/* Game UI */}
       {state.gameStarted && !state.gameOver && (
         <>
-          <Header
-            onStartGame={showDifficultySelector} // restart flow
-            showStartbutton={true}
-            label="Restart Game"
-            turnsLeft={turnsLeft}
-            showTurns={true}
-          />
           <main
             style={{ opacity: state.gameStarted ? 1 : 0.3 }}
             className={classes["main-wrapper"]}
@@ -139,5 +72,3 @@ function App() {
     </>
   );
 }
-
-export default App;

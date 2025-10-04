@@ -2,11 +2,10 @@ import classes from "./Header.module.css";
 import Button from "./Button";
 
 export default function Header({
-  onStartGame,
-  showStartbutton,
-  label,
-  turnsLeft,
+  onRestart,
+  showRestartbutton,
   showTurns,
+  turnsLeft,
 }) {
   return (
     <header className={classes.header}>
@@ -35,7 +34,7 @@ export default function Header({
       )}
 
       <div className={classes["button-container"]}>
-        {showStartbutton && <Button onClick={onStartGame}>{label}</Button>}
+        {showRestartbutton && <Button onClick={onRestart}>Restart Game</Button>}
       </div>
     </header>
   );

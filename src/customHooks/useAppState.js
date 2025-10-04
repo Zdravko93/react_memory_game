@@ -1,11 +1,12 @@
 import { useReducer, useEffect } from "react";
 import { gameReducer, initialState } from "../reducers/memoryGameReducer";
+import { evaluateGameOver } from "../utils/gameHelpers";
 
 export function useAppState() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
-  const showDifficultySelector = () => {
-    dispatch({ type: "SHOW_DIFFICULTY_SELECTOR" });
+  const restartGame = () => {
+    dispatch({ type: "RESTART_FLOW" });
   };
 
   const startGame = (difficulty = "easy") => {
@@ -13,8 +14,11 @@ export function useAppState() {
   };
 
   const flipCard = (id) => {
-    if (state.gameOver || !state.gameStarted || state.flippedCards.length >= 2)
-      return;
+    const canFlip =
+      !state.gameOver && state.gameStarted && state.flippedCards.length < 2;
+
+    if (!canFlip) return;
+
     dispatch({ type: "FLIP_CARD", payload: { id } });
   };
 
@@ -32,19 +36,16 @@ export function useAppState() {
   useEffect(() => {
     if (!state.gameStarted || state.gameOver) return;
 
-    const allMatched =
-      state.cards.length && state.cards.every((card) => card.matched);
-    const outOfTurns = state.turns >= state.maxTurns;
+    const { shouldEnd, message, type } = evaluateGameOver(
+      state.cards,
+      state.turns,
+      state.maxTurns
+    );
 
-    if (allMatched || outOfTurns) {
+    if (shouldEnd) {
       dispatch({
         type: "SET_GAME_OVER",
-        payload: {
-          message: allMatched
-            ? `Congratulations! You won in ${state.maxTurns} turns.`
-            : "You ran out of turns. Better luck next time!",
-          type: allMatched ? "success" : "failed",
-        },
+        payload: { message, type },
       });
     }
   }, [
@@ -62,6 +63,6 @@ export function useAppState() {
     startGame,
     flipCard,
     turnsLeft,
-    showDifficultySelector,
+    restartGame,
   };
 }

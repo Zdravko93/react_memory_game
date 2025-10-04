@@ -31,3 +31,32 @@ export function getMaxTurnsFromDifficulty(level) {
       return 13;
   }
 }
+
+function getUnmatchedPairs(cards) {
+  return cards.filter((card) => !card.matched).length / 2;
+}
+
+function hasNoChanceToWin(unmatchedPairs, remainingTurns) {
+  return remainingTurns < unmatchedPairs;
+}
+
+export function evaluateGameOver(cards, turns, maxTurns) {
+  const allCardsMatched = cards.every((card) => card.matched);
+  const unmatchedPairs = getUnmatchedPairs(cards);
+  const turnsRemaining = maxTurns - turns;
+
+  const outOfTurns = turns >= maxTurns;
+  const noChanceToWin = hasNoChanceToWin(unmatchedPairs, turnsRemaining);
+
+  const shouldEnd = allCardsMatched || outOfTurns || noChanceToWin;
+
+  const message = allCardsMatched
+    ? `🎉 Congratulations! You won in ${turns} turns.`
+    : noChanceToWin
+    ? `❌ No more possible moves! You can't win this game anymore.`
+    : `💀 You ran out of turns. Better luck next time!`;
+
+  const feedbackType = allCardsMatched ? "success" : "failed";
+
+  return { shouldEnd, message, type: feedbackType };
+}
