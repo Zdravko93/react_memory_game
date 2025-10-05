@@ -2,6 +2,7 @@
   position: fixed;
   right: 1rem;
   top: 2rem;
+  animation: fadeSlideIn 0.4s ease-out;
 
   display: flex;
   flex-direction: column;
@@ -19,42 +20,70 @@
   z-index: 1000;
   min-width: 150px;
   transition: all 0.3s ease;
+  animation: fadeSlideIn 0.4s ease-out;
 }
 
 .difficulty-display h3 {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #666;
   font-weight: 500;
 }
 
 .difficulty-display p {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
-  color: #222;
 }
 
 .easy {
-  color: #28a745; /* green */
+  color: #28a745;
 }
 
 .medium {
-  color: #ffc107; /* yellow */
+  color: #077bff;
 }
 
 .hard {
-  color: #dc3545; /* red */
+  color: #dc3545;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* MEDIA QUERIES */
+@media (max-width: 480px) {
+  .difficulty-display h3 {
+    font-size: 0.8rem;
+  }
+
+  .difficulty-display p {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 768px) {
   .difficulty-display {
-    top: auto;
-    bottom: 1rem;
+    top: 10.6rem;
     right: 2.5rem;
     min-width: unset;
     padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .difficulty-display h3 {
+    font-size: 0.9rem;
+  }
+
+  .difficulty-display p {
     font-size: 0.9rem;
   }
 }
