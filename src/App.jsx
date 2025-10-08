@@ -1,8 +1,10 @@
+// import { useReducer } from "react";
 import classes from "./App.module.css";
 
 import coverLogo from "./assets/cover.png";
 
 import Header from "./components/Header";
+import Button from "./components/Button";
 import Card from "./components/Card";
 import GameOver from "./components/GameOver";
 import GameLog from "./components/GameLog";
@@ -10,26 +12,57 @@ import DifficultySelector from "./components/DifficultySelector";
 import DifficultyDisplay from "./components/DifficultyDisplay";
 
 import { useAppState } from "./customHooks/useAppState";
+// import { gameReducer, initialState } from "../reducers/memoryGameReducer";
 
 export default function App() {
-  const { state, startGame, flipCard, turnsLeft, restartGame } = useAppState();
+  const {
+    state,
+    startGame,
+    flipCard,
+    turnsLeft,
+    restartGame,
+    showDifficultySelectorOnly,
+    dispatch,
+  } = useAppState();
 
   return (
     <>
       {!state.gameOver && (
         <Header
-          onRestart={restartGame}
-          showRestartbutton={
-            state.gameStarted && state.turns >= 1 && !state.gameOver
-          }
           showTurns={state.gameStarted && !state.gameOver}
           turnsLeft={turnsLeft}
         />
       )}
 
-      {/* Show Difficulty Selector at initial screen */}
-      {!state.gameStarted && state.showDifficultySelector && (
-        <DifficultySelector onSelect={startGame} />
+      {/* ACTION BUTTONS */}
+      {state.gameStarted && state.turns >= 1 && !state.gameOver && (
+        <div className={classes["button-container"]}>
+          <Button onClick={restartGame} className={classes["action-btn"]}>
+            Restart Game
+          </Button>
+          <Button
+            onClick={showDifficultySelectorOnly}
+            className={classes["action-btn"]}
+          >
+            Change Difficulty
+          </Button>
+        </div>
+      )}
+
+      {/* Difficulty Selector */}
+      {state.showDifficultySelector && (
+        <DifficultySelector
+          onSelect={(difficulty) => {
+            if (difficulty === state.difficulty) {
+              dispatch({ type: "CANCEL_DIFFICULTY_SELECTION" }); // Cancel if same mode
+              return;
+            }
+            startGame(difficulty, true); // preserve if different mode selected midgame
+          }}
+          currentDifficulty={state.difficulty}
+          allowBack={state.turns > 0 || state.gameStarted} // show and hide 'Back' button
+          onBackToGame={() => dispatch({ type: "CANCEL_DIFFICULTY_SELECTION" })} // Back button, return to the game
+        />
       )}
 
       {/* Game Over screen */}
@@ -40,7 +73,6 @@ export default function App() {
           onRestart={restartGame}
         />
       )}
-
       {/* Game UI */}
       {state.gameStarted && !state.gameOver && (
         <>

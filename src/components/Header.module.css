@@ -19,15 +19,6 @@ h2 {
   font-size: 0.9rem;
 }
 
-.button-container {
-  margin-top: 2.5em;
-  margin-bottom: 4em;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .turns-left {
   margin-top: 4rem;
   font-size: 0.9rem;
@@ -49,15 +40,6 @@ h2 {
 .number-alert {
   color: red;
   animation: pulse 0.8s infinite;
-}
-
-.restart-game-btn {
-  background: linear-gradient(135deg, #4e73df, #2a4e8f);
-}
-
-.restart-game-btn:hover {
-  background: linear-gradient(135deg, #2a4e8f, #4e73df);
-  box-shadow: 0 2px 20px rgba(255, 255, 255, 0.32);
 }
 
 @keyframes pulse {

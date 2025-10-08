@@ -5,12 +5,16 @@ import { evaluateGameOver } from "../utils/gameHelpers";
 export function useAppState() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
+  const showDifficultySelectorOnly = () => {
+    dispatch({ type: "SHOW_DIFFICULTY_SELECTOR_ONLY" });
+  };
+
   const restartGame = () => {
     dispatch({ type: "RESTART_FLOW" });
   };
 
-  const startGame = (difficulty = "easy") => {
-    dispatch({ type: "START_GAME", payload: { difficulty } });
+  const startGame = (difficulty = "easy", preserveProgress = false) => {
+    dispatch({ type: "START_GAME", payload: { difficulty, preserveProgress } });
   };
 
   const flipCard = (id) => {
@@ -64,5 +68,6 @@ export function useAppState() {
     flipCard,
     turnsLeft,
     restartGame,
+    showDifficultySelectorOnly,
   };
 }

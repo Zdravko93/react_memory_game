@@ -22,10 +22,22 @@ export const initialState = {
 export function gameReducer(state, action) {
   switch (action.type) {
     case "START_GAME": {
-      const { difficulty } = action.payload || {};
+      const { difficulty, preserveProgress = false } = action.payload || {};
       const maxTurns = getMaxTurnsFromDifficulty(difficulty || "easy");
       const shuffledCards = shuffleCards(cardImagePaths);
 
+      if (preserveProgress) {
+        // return preserved (latest) state snapshot too keep the game progress and continue the game after changing difficulty selection)
+        return {
+          ...state,
+          cards: shuffledCards,
+          maxTurns,
+          difficulty: difficulty || "easy",
+          gameStarted: true,
+          showDifficultySelector: false, // reset on game start
+        };
+      }
+      // RESET all state object properties
       return {
         ...initialState,
         cards: shuffledCards,
@@ -36,10 +48,27 @@ export function gameReducer(state, action) {
       };
     }
 
+    case "CANCEL_DIFFICULTY_SELECTION": {
+      return {
+        ...state,
+        showDifficultySelector: false,
+        gameStarted: true,
+      };
+    }
+
     case "RESTART_FLOW": {
       return {
         ...initialState,
         showDifficultySelector: true,
+      };
+    }
+
+    // Allow user to change game difficulty
+    case "SHOW_DIFFICULTY_SELECTOR_ONLY": {
+      return {
+        ...state,
+        showDifficultySelector: true,
+        gameStarted: false,
       };
     }
 

@@ -1,6 +1,8 @@
 .difficulty-wrapper {
   display: flex;
   justify-content: center;
+
+  position: relative;
 }
 
 .difficulty {
@@ -26,6 +28,7 @@
 .difficulty button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 0.4em 1em;
   font-size: 0.8rem;
@@ -36,6 +39,8 @@
   transition: transform 0.2s ease, background-color 0.3s ease;
   width: 280px;
   text-align: left;
+
+  position: relative;
 }
 
 .difficulty button:hover {
@@ -45,6 +50,17 @@
 .icon {
   width: 24px;
   height: 24px;
+}
+
+.current-badge {
+  position: absolute;
+  right: 0.2em;
+  bottom: 0.3em;
+  padding: 0.1em 0.5em;
+  font-size: 0.65rem;
+  border-radius: 100vh;
+  background: yellow;
+  color: purple;
 }
 
 .easy {
@@ -74,6 +90,17 @@
   background-color: #e53935;
 }
 
+.difficulty-back-btn {
+  position: absolute;
+  left: 8em;
+  bottom: -5em;
+  transition: background 200ms;
+}
+
+.difficulty-back-btn:hover {
+  background: green;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 480px) {
   .difficulty {
@@ -100,5 +127,9 @@
     padding: 0.7em 1.5em;
     font-size: 1rem;
     width: 280px;
+  }
+
+  .current-badge {
+    font-size: 0.8rem;
   }
 }

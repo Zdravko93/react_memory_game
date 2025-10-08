@@ -1,12 +1,6 @@
 import classes from "./Header.module.css";
-import Button from "./Button";
 
-export default function Header({
-  onRestart,
-  showRestartbutton,
-  showTurns,
-  turnsLeft,
-}) {
+export default function Header({ showTurns, turnsLeft }) {
   return (
     <header className={classes.header}>
       <h1>{"React Memory Game"}</h1>
@@ -32,14 +26,6 @@ export default function Header({
           )}
         </p>
       )}
-
-      <div className={classes["button-container"]}>
-        {showRestartbutton && (
-          <Button onClick={onRestart} className={classes["restart-game-btn"]}>
-            Restart Game
-          </Button>
-        )}
-      </div>
     </header>
   );
 }
