@@ -61,7 +61,11 @@ export default function App() {
           }}
           currentDifficulty={state.difficulty}
           allowBack={state.turns > 0 || state.gameStarted} // show and hide 'Back' button
-          onBackToGame={() => dispatch({ type: "CANCEL_DIFFICULTY_SELECTION" })} // Back button, return to the game
+          onBackToGame={() => {
+            console.log("Back to game clicked");
+
+            dispatch({ type: "CANCEL_DIFFICULTY_SELECTION" });
+          }} // Back button, return to the game
         />
       )}
 

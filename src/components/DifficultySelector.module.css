@@ -1,8 +1,14 @@
-.difficulty-wrapper {
+.difficulty-main-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
 
+.difficulty-wrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .difficulty {
@@ -90,15 +96,62 @@
   background-color: #e53935;
 }
 
+/* BACK BUTTON */
 .difficulty-back-btn {
   position: absolute;
-  left: 8em;
+  left: 0em;
   bottom: -5em;
-  transition: background 200ms;
+
+  background: linear-gradient(135deg, #00bcd4, #2196f3);
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 2px solid #03a9f4;
+  box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8em;
+  transition: background 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
 .difficulty-back-btn:hover {
-  background: green;
+  background: linear-gradient(135deg, #0097a7, #1976d2);
+  box-shadow: 0 8px 20px rgba(0, 188, 212, 0.6);
+  transform: translateY(-2px);
+}
+
+.difficulty-back-btn img {
+  width: 22px;
+  height: 22px;
+  transition: transform 300ms ease, filter 200ms ease;
+  filter: drop-shadow(0 0 2px white);
+}
+
+.difficulty-back-btn:hover img {
+  transform: translateX(-5px) scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 4px white);
+}
+
+.difficulty-back-btn:focus-visible {
+  outline: 2px solid cyan;
+}
+
+.difficulty-back-btn:focus-visible img {
+  animation: iconPulse 0.6s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
 }
 
 /* MEDIA QUERIES */

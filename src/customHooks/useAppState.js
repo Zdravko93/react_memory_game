@@ -69,5 +69,6 @@ export function useAppState() {
     turnsLeft,
     restartGame,
     showDifficultySelectorOnly,
+    dispatch,
   };
 }
