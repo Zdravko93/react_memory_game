@@ -1,7 +1,7 @@
 import classes from "./DifficultyDisplay.module.css";
 
 export default function DifficultyDisplay({ difficulty }) {
-  const diffClass = classes[difficulty.toLowerCase()];
+  const diffClass = classes[difficulty.toLowerCase()] || "";
 
   return (
     <div
@@ -10,7 +10,7 @@ export default function DifficultyDisplay({ difficulty }) {
       role="status"
       aria-label="Current game difficulty"
     >
-      <h2>Difficulty:</h2>
+      <span>Difficulty:</span>
       <p className={diffClass}>
         <strong>
           {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}

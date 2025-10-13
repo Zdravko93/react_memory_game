@@ -9,7 +9,9 @@
   align-items: flex-start;
   gap: 0.3rem;
 
+  max-width: 150px !important;
   background-color: #ffffffcc;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   padding: 1rem 1.5rem;
@@ -18,19 +20,18 @@
   color: #333;
 
   z-index: 1000;
-  min-width: 150px;
   transition: all 0.3s ease;
-  animation: fadeSlideIn 0.4s ease-out;
 }
 
-.difficulty-display h3,
+.difficulty-display span,
 .difficulty-display p {
   font-size: 1rem;
   margin: 0;
 }
 
-.difficulty-display h3 {
+.difficulty-display span {
   color: #666;
+
   font-weight: 500;
 }
 
@@ -77,7 +78,7 @@
     font-size: 0.9rem;
   }
 
-  .difficulty-display h3,
+  .difficulty-display span,
   .difficulty-display p {
     font-size: 0.9rem;
   }
