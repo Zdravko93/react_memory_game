@@ -8,7 +8,6 @@
   transition: opacity 300ms ease;
 }
 
-/* Here I am taking mobile-first approach */
 .cards-grid {
   display: grid;
   gap: 1rem;
@@ -32,31 +31,19 @@
   justify-content: center;
 }
 
-.action-btn {
-  background: linear-gradient(135deg, #4e73df, #2a4e8f);
-}
-
-.action-btn:hover {
-  background: linear-gradient(135deg, #2a4e8f, #4e73df);
-  box-shadow: 0 2px 20px rgba(255, 255, 255, 0.32);
-}
-
 /* MEDIA QUERIES */
-/* Mobile */
 @media (max-width: 480px) {
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Tablet */
 @media (min-width: 481px) and (max-width: 900px) {
   .cards-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Desktop */
 @media (min-width: 901px) {
   .cards-grid {
     grid-template-columns: repeat(4, 1fr);

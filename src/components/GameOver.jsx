@@ -1,9 +1,7 @@
 import ReactDOM from "react-dom";
 import classes from "./GameOver.module.css";
 
-const Backdrop = ({ onClick }) => (
-  <div className={classes.backdrop} onClick={onClick} />
-);
+const Backdrop = () => <div className={classes.backdrop} aria-hidden="true" />;
 
 const Modal = ({ feedbackText, feedbackColor, onRestart }) => (
   <div
@@ -15,7 +13,9 @@ const Modal = ({ feedbackText, feedbackColor, onRestart }) => (
     <h2 id="gameOverTitle">Game Over!</h2>
     <p className={classes[feedbackColor]}>{feedbackText}</p>
     <p className={classes.actions}>
-      <button onClick={onRestart}>Restart game</button>
+      <button type="button" onClick={onRestart}>
+        Restart game
+      </button>
     </p>
   </div>
 );
@@ -25,7 +25,7 @@ export default function GameOver({ feedbackText, feedbackColor, onRestart }) {
 
   return ReactDOM.createPortal(
     <>
-      <Backdrop onClick={onRestart} />
+      <Backdrop />
       <Modal
         feedbackText={feedbackText}
         feedbackColor={feedbackColor}

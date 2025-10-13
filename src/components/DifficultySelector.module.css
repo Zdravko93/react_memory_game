@@ -43,10 +43,18 @@
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
+  text-transform: capitalize;
   width: 280px;
   text-align: left;
 
   position: relative;
+}
+
+.difficulty button:focus-visible {
+  outline: 3px solid #0078d7;
+  outline-offset: 3px;
+  transform: scale(1.05);
+  transition: transform 0.15s ease, outline-offset 0.15s ease;
 }
 
 .difficulty button:hover {
@@ -67,6 +75,14 @@
   border-radius: 100vh;
   background: yellow;
   color: purple;
+}
+
+.easy:disabled,
+.medium:disabled,
+.hard:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
 }
 
 .easy {
@@ -100,11 +116,12 @@
 .difficulty-back-btn {
   position: absolute;
   left: 0em;
-  bottom: -5em;
+  bottom: -7em;
 
   background: linear-gradient(135deg, #00bcd4, #2196f3);
   color: white;
   font-weight: 700;
+  font-size: 0.6rem;
   border-radius: 10px;
   border: 2px solid #03a9f4;
   box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
@@ -184,5 +201,9 @@
 
   .current-badge {
     font-size: 0.8rem;
+  }
+
+  .difficulty-back-btn {
+    font-size: 0.7rem;
   }
 }

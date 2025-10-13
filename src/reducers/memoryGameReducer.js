@@ -9,7 +9,7 @@ export const initialState = {
   cards: [],
   flippedCards: [],
   matchedCards: [],
-  difficulty: "easy",
+  difficulty: null,
   turns: 0,
   maxTurns: 13,
   showDifficultySelector: true,
@@ -33,10 +33,21 @@ export function gameReducer(state, action) {
           cards: shuffledCards,
           maxTurns,
           difficulty: difficulty || "easy",
+
+          turns: 0,
+          flippedCards: [],
+          matchedCards: [],
+          logEntries: [],
+          gameOver: false,
+          feedback: { message: "", type: "" },
+
           gameStarted: true,
           showDifficultySelector: false, // reset on game start
         };
       }
+
+      console.log("Reducer: START_GAME with", action.payload.difficulty);
+
       // RESET all state object properties
       return {
         ...initialState,

@@ -1,4 +1,5 @@
-import classes from "./Card.module.css";
+import cardClasses from "./Card.module.css";
+import buttonClasses from "./Button.module.css";
 
 import Button from "./Button";
 
@@ -13,26 +14,26 @@ export default function Card({
   return (
     <Button
       type="button"
-      className={`${classes.cards} ${flipped ? classes.flipped : ""} ${
-        matched ? classes.matched : ""
-      } ${classes.cards}`}
+      className={`${cardClasses.cards} ${flipped ? cardClasses.flipped : ""} ${
+        matched ? cardClasses.matched : ""
+      } ${buttonClasses["card-btn"]}`}
       id={id}
       onClick={() => onClick(id)}
       disabled={matched} // prevent clicking if already matched
       aria-pressed={flipped}
-      aria-label={flipped ? "Flipped card" : "Hidden card"}
+      aria-label={flipped ? `Card ${id}, showing front` : `Card ${id}, hidden`}
     >
       <img
         src={cardImage}
-        alt="Front of card"
-        className={classes["front-card"]}
+        alt=""
+        className={cardClasses["front-card"]}
         aria-hidden={!flipped}
       />
 
       <img
         src={coverImage}
-        alt="Back of card"
-        className={classes["back-card"]}
+        alt=""
+        className={cardClasses["back-card"]}
         aria-hidden={!flipped}
       />
     </Button>

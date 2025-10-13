@@ -17,7 +17,12 @@ export default function DifficultySelector({
     <div className={classes["difficulty-main-container"]}>
       <div className={classes["difficulty-wrapper"]}>
         <div className={classes.difficulty}>
-          <h3>🕹️ Select Your Challenge</h3>
+          <h2>
+            <span role="img" aria-label="joystick">
+              🕹️
+            </span>{" "}
+            Select Your Challenge
+          </h2>
 
           <DifficultyButton
             btnClassName={classes.easy}
@@ -51,6 +56,7 @@ export default function DifficultySelector({
             <Button
               className={classes["difficulty-back-btn"]}
               onClick={onBackToGame}
+              aria-label="Resume Game"
             >
               <img src={backButton} alt="" aria-hidden="true" />
               <span>Back to game</span>

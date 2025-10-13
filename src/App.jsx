@@ -1,5 +1,5 @@
-// import { useReducer } from "react";
 import classes from "./App.module.css";
+import buttonClasses from "./components/Button.module.css";
 
 import coverLogo from "./assets/cover.png";
 
@@ -12,7 +12,6 @@ import DifficultySelector from "./components/DifficultySelector";
 import DifficultyDisplay from "./components/DifficultyDisplay";
 
 import { useAppState } from "./customHooks/useAppState";
-// import { gameReducer, initialState } from "../reducers/memoryGameReducer";
 
 export default function App() {
   const {
@@ -26,7 +25,7 @@ export default function App() {
   } = useAppState();
 
   return (
-    <>
+    <div role="application" aria-label="Memory Game Application">
       {!state.gameOver && (
         <Header
           showTurns={state.gameStarted && !state.gameOver}
@@ -35,14 +34,19 @@ export default function App() {
       )}
 
       {/* ACTION BUTTONS */}
-      {state.gameStarted && state.turns >= 1 && !state.gameOver && (
+      {state.gameStarted && !state.gameOver && (
         <div className={classes["button-container"]}>
-          <Button onClick={restartGame} className={classes["action-btn"]}>
-            Restart Game
-          </Button>
+          {state.turns >= 1 && (
+            <Button
+              onClick={restartGame}
+              className={buttonClasses["action-btn"]}
+            >
+              Restart Game
+            </Button>
+          )}
           <Button
             onClick={showDifficultySelectorOnly}
-            className={classes["action-btn"]}
+            className={buttonClasses["action-btn"]}
           >
             Change Difficulty
           </Button>
@@ -62,8 +66,6 @@ export default function App() {
           currentDifficulty={state.difficulty}
           allowBack={state.turns > 0 || state.gameStarted} // show and hide 'Back' button
           onBackToGame={() => {
-            console.log("Back to game clicked");
-
             dispatch({ type: "CANCEL_DIFFICULTY_SELECTION" });
           }} // Back button, return to the game
         />
@@ -108,6 +110,6 @@ export default function App() {
           <DifficultyDisplay difficulty={state.difficulty} />
         </>
       )}
-    </>
+    </div>
   );
 }

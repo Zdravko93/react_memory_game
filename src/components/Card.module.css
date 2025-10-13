@@ -31,7 +31,7 @@
   left: 0;
 
   backface-visibility: hidden;
-  transform-style: preserve-3d; /* Ensures the 3D effect is preserved */
+  transform-style: preserve-3d; /* Ensure the 3D effect is preserved */
   transition: transform 500ms ease;
 }
 

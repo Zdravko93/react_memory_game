@@ -56,8 +56,17 @@
   transition: opacity 300ms;
 }
 
-.actions button:hover {
+.actions button:hover,
+.actions button:focus-visible {
   opacity: 1;
+}
+
+.actions button:focus-visible {
+  transform: scale(1.1);
+  background-color: yellow;
+  color: green;
+  outline: 3px solid cyan;
+  outline-offset: 3px;
 }
 
 /* MEDIA QUERIES */

@@ -2,7 +2,7 @@ import classes from "./Header.module.css";
 
 export default function Header({ showTurns, turnsLeft }) {
   return (
-    <header className={classes.header}>
+    <header className={classes.header} aria-label="Game status header">
       <h1>{"React Memory Game"}</h1>
       <h2>{"Can you pair 'em all?"}</h2>
 
@@ -22,7 +22,13 @@ export default function Header({ showTurns, turnsLeft }) {
               </span>
             </>
           ) : (
-            turnsLeft === 1 && "⚠️ Final turn!"
+            turnsLeft === 1 && (
+              <>
+                <span aria-hidden="true">⚠️</span>
+                <span className="sr-only">Warning: </span>
+                Final turn!
+              </>
+            )
           )}
         </p>
       )}

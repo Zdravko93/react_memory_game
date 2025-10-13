@@ -12,6 +12,7 @@
 }
 
 .log-entries {
+  width: 100%;
   background: #000;
   box-shadow: 0 0 10px 2px orange;
 }
@@ -23,6 +24,11 @@
   justify-content: space-around;
 }
 
+.log-entry span {
+  width: 100%;
+  /* text-align: center; */
+}
+
 .turn,
 .time,
 .checkmark,
@@ -32,6 +38,11 @@
 
 .turn {
   color: orange;
+}
+
+.checkmark,
+.cross {
+  text-align: center;
 }
 
 .checkmark {

@@ -1,6 +1,10 @@
+import React from "react";
+
 import classes from "./DifficultySelector.module.css";
 
-export default function DifficultyButton({
+import Button from "./Button";
+
+const DifficultyButton = React.memo(function DifficultyButton({
   btnClassName,
   iconSrc,
   altText,
@@ -9,12 +13,23 @@ export default function DifficultyButton({
   isCurrent,
 }) {
   return (
-    <button className={btnClassName} onClick={onClick} disabled={isCurrent}>
+    <Button
+      className={btnClassName}
+      onClick={onClick}
+      disabled={isCurrent}
+      aria-label={`${label}${isCurrent ? ", currently selected" : ""}`}
+    >
       <img src={iconSrc} alt={altText} className={classes.icon} />
       <div>
         <span>{label}</span>
-        {isCurrent && <span className={classes["current-badge"]}>Current</span>}
+        {isCurrent && (
+          <span className={classes["current-badge"]} aria-hidden="true">
+            Current
+          </span>
+        )}
       </div>
-    </button>
+    </Button>
   );
-}
+});
+
+export default DifficultyButton;
