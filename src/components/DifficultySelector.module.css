@@ -20,6 +20,7 @@
   background-color: #1e1e2f;
   border-radius: 12px;
   padding: 2rem;
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   color: #f4f4f4;
 }
@@ -174,7 +175,7 @@
 /* MEDIA QUERIES */
 @media (min-width: 480px) {
   .difficulty {
-    max-width: fit-content;
+    min-width: 350px;
   }
 
   .difficulty h3 {
