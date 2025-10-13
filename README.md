@@ -1,6 +1,6 @@
 # React Memory Game
 
-This is a **Memory Game** built with **React**. The game challenges players to match pairs of cards, keeping track of the number of moves made and the time spent to complete the game. The game is designed to be fun and engaging while helping you sharpen your memory.
+A responsive and interactive Memory Game built with React. Challenge yourself to match card pairs while tracking your time and number of moves. Designed to be fun, engaging, and a great exercise for improving your short-term memory!
 
 ## Table of Contents
 
@@ -21,9 +21,17 @@ This is a **Memory Game** built with **React**. The game challenges players to m
 The goal of the game is to match pairs of cards. Users can:
 
 - Play the game with cards that are shuffled each time the game starts.
-- Flip cards to reveal their image and try to match pairs.
-- Track the number of moves and time taken to complete the game.
+- Click or hit enter or space buttons to flip cards to reveal their image and try to match pairs.
+- Track the number of moves and game log with player turns.
 - Restart the game once all pairs are matched.
+- Restart midgame
+- Change difficulty midgame
+- Read game log with turns played
+- See game difficulty level display
+- Card flip animations
+- Matched pair animations
+- Responsive design
+- Visually engaging
 
 ### Screenshot
 
@@ -40,22 +48,26 @@ This project was built to practice my **React** skills, focusing on **state mana
 
 ### Technologies Used
 
-- **React**: JavaScript library for building the user interface.
-- **CSS Modules**: For scoped styling and modular design.
-- **useState and useEffect**: React hooks used for managing game state, card flips, and timer.
-- **JavaScript**: Modern JavaScript (ES6+) for game functionality and logic.
+- **React**: Core library for building the UI with components
+- **JavaScript**: Modern JavaScript for game functionality and logic.
+- **useReducer and useEffect**: React hooks used for managing game state, card flips, and game logic.
+- **CSS Modules**: Scoped styling to keep styles modular and maintainable.
 
 ### Plans for Future Enhancements
 
-- **Refactor Code Using `useContext`:** Currently, the app relies on multiple `useState` hooks to manage different parts of the state, like card values, moves, and whether the cards are flipped. The plan is to refactor the state management to use `useContext` to avoid prop drilling and make the state easier to manage globally.
-  
-- **Improve Card Matching Logic:** Currently, the logic to handle the card matching could be optimized. Future improvements will focus on separating concerns into custom hooks for better readability and modularity.
+Although the core gameplay is functional, several enhancements are planned to improve structure, usability, and scalability:
 
-- **Add Timer:** A timer will be added to track how long it takes to complete the game, encouraging users to improve their speed.
+- **Global State with useContext**
+  Replace multiple useState hooks with useContext to centralize state and avoid prop drilling, making state easier to manage across components.
 
-- **User Settings:** Allow users to choose the difficulty level (easy, medium, hard) by changing the number of cards or the layout.
+- **Difficulty Settings**
+  Add an option for players to choose difficulty (Easy, Medium, Hard), which will dynamically adjust the number of cards and layout.
 
-- **Animations and Transitions:** Improve the user experience with smooth animations when cards are flipped or matched.
+- **Improved Animations**
+  Introduce smoother transitions and subtle animations for card flips, matches, and resets to enhance user engagement.
+
+- **Scoring Feedback / Stats**
+  Display performance feedback such as accuracy, or player score at the end of the game.
 
 ## Installation
 
@@ -76,5 +88,6 @@ Follow these steps to run this project locally:
 4. Visit http://localhost:3000 to play the game locally
 
 ## Author
-Github: [Zdravko93](https://github.com/Zdravko93?tab=repositories)
+
+Github: [Zdravko93](https://github.com/Zdravko93/react_memory_game)
 Frontend Mentor: [@Zdravko93](https://www.frontendmentor.io/profile/Zdravko93)
