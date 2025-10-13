@@ -56,6 +56,16 @@ export function gameReducer(state, action) {
         difficulty: difficulty || "easy",
         gameStarted: true,
         showDifficultySelector: false, // reset on game start
+        cameFromGame: false,
+      };
+    }
+
+    case "SHOW_DIFFICULTY_SELECTOR_FROM_GAME": {
+      return {
+        ...state,
+        showDifficultySelector: true,
+        cameFromGame: true,
+        gameStarted: false,
       };
     }
 
@@ -64,6 +74,7 @@ export function gameReducer(state, action) {
         ...state,
         showDifficultySelector: false,
         gameStarted: true,
+        cameFromGame: false,
       };
     }
 
@@ -71,15 +82,7 @@ export function gameReducer(state, action) {
       return {
         ...initialState,
         showDifficultySelector: true,
-      };
-    }
-
-    // Allow user to change game difficulty
-    case "SHOW_DIFFICULTY_SELECTOR_ONLY": {
-      return {
-        ...state,
-        showDifficultySelector: true,
-        gameStarted: false,
+        cameFromGame: false,
       };
     }
 

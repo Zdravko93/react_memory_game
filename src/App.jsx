@@ -14,15 +14,8 @@ import DifficultyDisplay from "./components/DifficultyDisplay";
 import { useAppState } from "./customHooks/useAppState";
 
 export default function App() {
-  const {
-    state,
-    startGame,
-    flipCard,
-    turnsLeft,
-    restartGame,
-    showDifficultySelectorOnly,
-    dispatch,
-  } = useAppState();
+  const { state, startGame, flipCard, turnsLeft, restartGame, dispatch } =
+    useAppState();
 
   return (
     <div role="application" aria-label="Memory Game Application">
@@ -45,7 +38,9 @@ export default function App() {
             </Button>
           )}
           <Button
-            onClick={showDifficultySelectorOnly}
+            onClick={() =>
+              dispatch({ type: "SHOW_DIFFICULTY_SELECTOR_FROM_GAME" })
+            }
             className={buttonClasses["action-btn"]}
           >
             Change Difficulty
@@ -64,7 +59,7 @@ export default function App() {
             startGame(difficulty, true); // preserve if different mode selected midgame
           }}
           currentDifficulty={state.difficulty}
-          allowBack={state.turns > 0 || state.gameStarted} // show and hide 'Back' button
+          allowBack={state.cameFromGame} // show and hide 'Back' button
           onBackToGame={() => {
             dispatch({ type: "CANCEL_DIFFICULTY_SELECTION" });
           }} // Back button, return to the game
