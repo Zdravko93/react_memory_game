@@ -1,6 +1,6 @@
 # React Memory Game
 
-A responsive and interactive Memory Game built with React. Challenge yourself to match card pairs while tracking your time and number of moves. Designed to be fun, engaging, and a great exercise for improving your short-term memory!
+A fun, responsive memory card game built with React. Match pairs, track turns, and challenge your memory with different difficulty levels!
 
 ## Table of Contents
 
@@ -11,7 +11,7 @@ A responsive and interactive Memory Game built with React. Challenge yourself to
 - [My Process](#my-process)
   - [Technologies Used](#technologies-used)
   - [Plans for Future Enhancements](#plans-for-future-enhancements)
-- [Installation](#installation)
+- [Installation & Usage](#installation-and-usage)
 - [Author](#author)
 
 ## Overview
@@ -35,7 +35,7 @@ The goal of the game is to match pairs of cards. Users can:
 
 ### Screenshot
 
-![Memory Game Screenshot](./react-memory-game.png)
+![Memory Game Screenshot](./react-memory-game.WebP)
 
 ### Links
 
@@ -46,12 +46,24 @@ The goal of the game is to match pairs of cards. Users can:
 
 This project was built to practice my **React** skills, focusing on **state management** and **logic implementation**. I wanted to create a fun and interactive game that could also serve as a great learning experience for understanding how to handle dynamic data, manage state, and implement game logic in React.
 
+## Performance & Accessibility
+
+The React Memory Game is optimized for performance and accessibility:
+
+- **Lighthouse Performance Score:** 95+
+- **Accessibility:** Fully accessible with keyboard navigation
+- **Responsive Design:** Works on desktop, tablet, and mobile
+- **SEO:** Meta tags and Open Graph / Twitter cards implemented
+
+![Lighthouse mobile report]()
+![Lighthouse desktop report]()
+
 ### Technologies Used
 
-- **React**: Core library for building the UI with components
-- **JavaScript**: Modern JavaScript for game functionality and logic.
-- **useReducer and useEffect**: React hooks used for managing game state, card flips, and game logic.
-- **CSS Modules**: Scoped styling to keep styles modular and maintainable.
+- `React`: Component-based UI library
+- `JavaScript (ES6)`: Game logic and interactivity
+- `useReducer`, `useEffect`: State management and lifecycle hooks
+- `CSS Modules`: Scoped and maintainable styles
 
 ### Plans for Future Enhancements
 
@@ -73,19 +85,18 @@ Although the core gameplay is functional, several enhancements are planned to im
 
 Follow these steps to run this project locally:
 
-1. Clone the repository:
+1. Clone the repo:
    ```bash
    git clone https://github.com/Zdravko93/react_memory_game.git
    ```
-2. Install the required dependencies:
+2. Install the dependencies:
    ```bash
    npm install
    ```
-3. Start the development server:
+3. Start the dev server:
    ```bash
    npm run dev
    ```
-4. Visit http://localhost:3000 to play the game locally
 
 ## Author
 
