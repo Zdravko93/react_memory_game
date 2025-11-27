@@ -1,30 +1,39 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useCallback } from "react";
 import { gameReducer, initialState } from "../reducers/memoryGameReducer";
 import { evaluateGameOver } from "../utils/gameHelpers";
 
 export function useAppState() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
-  const showDifficultySelectorOnly = () => {
+  const showDifficultySelectorOnly = useCallback(() => {
     dispatch({ type: "SHOW_DIFFICULTY_SELECTOR_ONLY" });
-  };
+  }, [dispatch]);
 
-  const restartGame = () => {
+  const restartGame = useCallback(() => {
     dispatch({ type: "RESTART_FLOW" });
-  };
+  }, [dispatch]);
 
-  const startGame = (difficulty = "easy", preserveProgress = false) => {
-    dispatch({ type: "START_GAME", payload: { difficulty, preserveProgress } });
-  };
+  const startGame = useCallback(
+    (difficulty = "easy", preserveProgress = false) => {
+      dispatch({
+        type: "START_GAME",
+        payload: { difficulty, preserveProgress },
+      });
+    },
+    [dispatch]
+  );
 
-  const flipCard = (id) => {
-    const canFlip =
-      !state.gameOver && state.gameStarted && state.flippedCards.length < 2;
+  const flipCard = useCallback(
+    (id) => {
+      const canFlip =
+        !state.gameOver && state.gameStarted && state.flippedCards.length < 2;
 
-    if (!canFlip) return;
+      if (!canFlip) return;
 
-    dispatch({ type: "FLIP_CARD", payload: { id } });
-  };
+      dispatch({ type: "FLIP_CARD", payload: { id } });
+    },
+    [state.gameOver, state.gameStarted, state.flippedCards.length, dispatch]
+  );
 
   // Flip evaluation logic
   useEffect(() => {
