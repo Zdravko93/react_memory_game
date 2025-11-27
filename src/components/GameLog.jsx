@@ -1,6 +1,8 @@
+import React from "react";
+
 import classes from "./GameLog.module.css";
 
-export default function GameLog({ logEntries }) {
+export default React.memo(function GameLog({ logEntries }) {
   return (
     <section className={classes["game-log"]} aria-label="Player turns log">
       <h2>{"Player's turns"}</h2>
@@ -21,4 +23,4 @@ export default function GameLog({ logEntries }) {
       </ul>
     </section>
   );
-}
+});

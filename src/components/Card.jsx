@@ -1,9 +1,11 @@
+import React, { useCallback } from "react";
+
 import cardClasses from "./Card.module.css";
 import buttonClasses from "./Button.module.css";
 
 import Button from "./Button";
 
-export default function Card({
+export default React.memo(function Card({
   cardImage,
   coverImage,
   id,
@@ -11,6 +13,8 @@ export default function Card({
   matched,
   onClick,
 }) {
+  const handleClick = useCallback(() => onClick(id), [id, onClick]);
+
   return (
     <Button
       type="button"
@@ -18,7 +22,7 @@ export default function Card({
         matched ? cardClasses.matched : ""
       } ${buttonClasses["card-btn"]}`}
       id={id}
-      onClick={() => onClick(id)}
+      onClick={handleClick}
       disabled={matched} // prevent clicking if already matched
       aria-pressed={flipped}
       aria-label={flipped ? `Card ${id}, showing front` : `Card ${id}, hidden`}
@@ -38,4 +42,4 @@ export default function Card({
       />
     </Button>
   );
-}
+});
