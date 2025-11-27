@@ -48,7 +48,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Difficulty Selector */}
+      {/* Difficulty  */}
       {state.showDifficultySelector && (
         <DifficultySelector
           onSelect={(difficulty) => {
