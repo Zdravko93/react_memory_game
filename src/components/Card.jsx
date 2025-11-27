@@ -14,13 +14,14 @@ export default React.memo(function Card({
   onClick,
 }) {
   const handleClick = useCallback(() => onClick(id), [id, onClick]);
+  const cardClass = `${cardClasses.cards} ${
+    flipped ? cardClasses.flipped : ""
+  } ${matched ? cardClasses.matched : ""} ${buttonClasses["card-btn"]}`;
 
   return (
     <Button
       type="button"
-      className={`${cardClasses.cards} ${flipped ? cardClasses.flipped : ""} ${
-        matched ? cardClasses.matched : ""
-      } ${buttonClasses["card-btn"]}`}
+      className={cardClass}
       id={id}
       onClick={handleClick}
       disabled={matched} // prevent clicking if already matched
