@@ -13,6 +13,8 @@ export function shuffleCards(images) {
 
 export function createLogEntry(turn, match) {
   return {
+    id: `${turn}-${Date.now()}`, // unique id instead of 'index' as a key for future-proof code
+    // avoids potential DOM bugs if entries are removed/edited later
     turn,
     time: new Date().toLocaleTimeString(),
     match,
