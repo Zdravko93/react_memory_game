@@ -1,6 +1,5 @@
 import { useReducer, useEffect, useCallback } from "react";
 import { gameReducer, initialState } from "../reducers/memoryGameReducer";
-import { evaluateGameOver } from "../utils/gameHelpers";
 
 export function useAppState() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
@@ -44,30 +43,6 @@ export function useAppState() {
       return () => clearTimeout(timeout);
     }
   }, [state.flippedCards]);
-
-  // Game Over check
-  useEffect(() => {
-    if (!state.gameStarted || state.gameOver) return;
-
-    const { shouldEnd, message, type } = evaluateGameOver(
-      state.cards,
-      state.turns,
-      state.maxTurns
-    );
-
-    if (shouldEnd) {
-      dispatch({
-        type: "SET_GAME_OVER",
-        payload: { message, type },
-      });
-    }
-  }, [
-    state.cards,
-    state.turns,
-    state.maxTurns,
-    state.gameStarted,
-    state.gameOver,
-  ]);
 
   const turnsLeft = state.maxTurns - state.turns;
 
