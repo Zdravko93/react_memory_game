@@ -7,8 +7,8 @@ export default React.memo(function GameLog({ logEntries }) {
     <section className={classes["game-log"]} aria-label="Player turns log">
       <h2>{"Player's turns"}</h2>
       <ul className={classes["log-entries"]} aria-label="">
-        {logEntries.map((entry, index) => (
-          <li className={classes["log-entry"]} key={index}>
+        {logEntries.map((entry) => (
+          <li className={classes["log-entry"]} key={entry.id}>
             <span className={classes.turn}>{`Turn ${entry.turn}`}</span>
             <span className={classes.time}>{entry.time}</span>
             <span
