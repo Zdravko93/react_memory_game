@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 import classes from "./DifficultySelector.module.css";
 import childIcon from "../assets/child.svg";
 import brainIcon from "../assets/brain.svg";
@@ -13,6 +15,10 @@ export default function DifficultySelector({
   allowBack,
   onBackToGame,
 }) {
+  const handleEasy = useCallback(() => onSelect("easy"), [onSelect]);
+  const handleMedium = useCallback(() => onSelect("medium"), [onSelect]);
+  const handleHard = useCallback(() => onSelect("hard"), [onSelect]);
+
   return (
     <div className={classes["difficulty-main-container"]}>
       <div className={classes["difficulty-wrapper"]}>
@@ -29,7 +35,7 @@ export default function DifficultySelector({
             iconSrc={childIcon}
             altText="Child icon representing easy game difficulty"
             label={'Child Mode — "I just want to win"'}
-            onClick={() => onSelect("easy")}
+            onClick={handleEasy}
             isCurrent={currentDifficulty === "easy"}
           />
 
@@ -38,7 +44,7 @@ export default function DifficultySelector({
             iconSrc={brainIcon}
             altText="Brain icon representing medium game difficulty"
             label={'Normal Mode — "Let’s see what I’ve got"'}
-            onClick={() => onSelect("medium")}
+            onClick={handleMedium}
             isCurrent={currentDifficulty === "medium"}
           />
 
@@ -47,7 +53,7 @@ export default function DifficultySelector({
             iconSrc={skullIcon}
             altText="Skull icon representing hard game difficulty"
             label={'Nightmare Mode — "Noo way 😵"'}
-            onClick={() => onSelect("hard")}
+            onClick={handleHard}
             isCurrent={currentDifficulty === "hard"}
           />
         </div>
