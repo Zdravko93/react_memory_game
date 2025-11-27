@@ -2,6 +2,8 @@ import classes from "./DifficultyDisplay.module.css";
 
 export default function DifficultyDisplay({ difficulty }) {
   const diffClass = classes[difficulty.toLowerCase()] || "";
+  const difficultyText =
+    difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
 
   return (
     <div
@@ -12,9 +14,7 @@ export default function DifficultyDisplay({ difficulty }) {
     >
       <span>Difficulty:</span>
       <p className={diffClass}>
-        <strong>
-          {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
-        </strong>
+        <strong>{difficultyText}</strong>
       </p>
     </div>
   );
