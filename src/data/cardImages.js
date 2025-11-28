@@ -1,9 +1,9 @@
-import angularLogo from "../assets/angular.png";
-import cssLogo from "../assets/css.png";
-import html5Logo from "../assets/html5.png";
-import javaScriptLogo from "../assets/javaScript.png";
-import reactLogo from "../assets/react.png";
-import vueLogo from "../assets/vue.png";
+import angularLogo from "../assets/angular.webp";
+import cssLogo from "../assets/css.webp";
+import html5Logo from "../assets/html5.webp";
+import javaScriptLogo from "../assets/javaScript.webp";
+import reactLogo from "../assets/react.webp";
+import vueLogo from "../assets/vue.webp";
 
 export const cardImagePaths = [
   angularLogo,
