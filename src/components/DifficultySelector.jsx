@@ -1,12 +1,7 @@
 import { useCallback } from "react";
 
 import classes from "./DifficultySelector.module.css";
-// Images
-import childIcon from "../assets/child.webp";
-import brainIcon from "../assets/brain.webp";
-import skullIcon from "../assets/skull.webp";
-import backButton from "../assets/back-btn.webp";
-// Components
+
 import DifficultyButton from "./DifficultyButton";
 import Button from "./Button";
 
@@ -33,7 +28,7 @@ export default function DifficultySelector({
 
           <DifficultyButton
             btnClassName={classes.easy}
-            iconSrc={childIcon}
+            iconSrc="assets/child.webp"
             altText="Child icon representing easy game difficulty"
             label={'Child Mode — "I just want to win"'}
             onClick={handleEasy}
@@ -42,7 +37,7 @@ export default function DifficultySelector({
 
           <DifficultyButton
             btnClassName={classes.medium}
-            iconSrc={brainIcon}
+            iconSrc="assets/brain.webp"
             altText="Brain icon representing medium game difficulty"
             label={'Normal Mode — "Let’s see what I’ve got"'}
             onClick={handleMedium}
@@ -51,7 +46,7 @@ export default function DifficultySelector({
 
           <DifficultyButton
             btnClassName={classes.hard}
-            iconSrc={skullIcon}
+            iconSrc="assets/skull.webp"
             altText="Skull icon representing hard game difficulty"
             label={'Nightmare Mode — "Noo way 😵"'}
             onClick={handleHard}
@@ -65,7 +60,7 @@ export default function DifficultySelector({
               onClick={onBackToGame}
               aria-label="Resume Game"
             >
-              <img src={backButton} alt="" aria-hidden="true" />
+              <img src="/assets/back-btn.webp" alt="" aria-hidden="true" />
               <span>Back to game</span>
             </Button>
           </div>
