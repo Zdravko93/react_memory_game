@@ -1,11 +1,12 @@
 import { useCallback } from "react";
 
 import classes from "./DifficultySelector.module.css";
-import childIcon from "../assets/child.svg";
-import brainIcon from "../assets/brain.svg";
-import skullIcon from "../assets/skull.svg";
-import backButton from "../assets/back-btn.svg";
-
+// Images
+import childIcon from "../assets/child.webp";
+import brainIcon from "../assets/brain.webp";
+import skullIcon from "../assets/skull.webp";
+import backButton from "../assets/back-btn.webp";
+// Components
 import DifficultyButton from "./DifficultyButton";
 import Button from "./Button";
 
