@@ -1,7 +1,7 @@
 import classes from "./App.module.css";
 import buttonClasses from "./components/Button.module.css";
 
-import coverLogo from "./assets/cover.png";
+import coverLogo from "./assets/cover.webp";
 
 import Header from "./components/Header";
 import Button from "./components/Button";
