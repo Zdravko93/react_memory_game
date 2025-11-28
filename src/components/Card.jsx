@@ -30,6 +30,7 @@ export default React.memo(function Card({
     >
       <img
         src={cardImage}
+        loading="lazy"
         alt=""
         className={cardClasses["front-card"]}
         aria-hidden={!flipped}
@@ -37,6 +38,7 @@ export default React.memo(function Card({
 
       <img
         src={coverImage}
+        loading="lazy"
         alt=""
         className={cardClasses["back-card"]}
         aria-hidden={!flipped}
