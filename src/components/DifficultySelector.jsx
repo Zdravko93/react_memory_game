@@ -60,7 +60,7 @@ export default function DifficultySelector({
               onClick={onBackToGame}
               aria-label="Resume Game"
             >
-              <img src="/assets/back-btn.webp" alt="" aria-hidden="true" />
+              <img src="assets/back-btn.webp" alt="" aria-hidden="true" />
               <span>Back to game</span>
             </Button>
           </div>
