@@ -1,8 +1,6 @@
 import classes from "./App.module.css";
 import buttonClasses from "./components/Button.module.css";
 
-import coverLogo from "./assets/cover.webp";
-
 import Header from "./components/Header";
 import Button from "./components/Button";
 import Card from "./components/Card";
@@ -93,7 +91,7 @@ export default function App() {
                   key={card.id}
                   id={card.id}
                   cardImage={card.image}
-                  coverImage={coverLogo}
+                  coverImage="assets/cover.webp"
                   flipped={card.flipped}
                   matched={card.matched}
                   onClick={flipCard}
