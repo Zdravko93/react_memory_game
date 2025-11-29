@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 import { shuffleCards, getMaxTurnsFromDifficulty } from "../utils/gameHelpers";
 import { evaluateFlipped } from "../utils/evaluateFlipped";
 import { cardImagePaths } from "../data/cardImages";
@@ -24,19 +22,8 @@ export function gameReducer(state, action) {
       const { difficulty, preserveProgress = false } = action.payload || {};
       const maxTurns = getMaxTurnsFromDifficulty(difficulty || "easy");
 
-      // Duplicate paths to create pairs
-      const pairs = [...cardImagePaths, ...cardImagePaths];
-
-      // Shuffle the array
-      const shuffledPaths = shuffleCards(pairs);
-
       // Map paths into card objects
-      const shuffledCards = shuffledPaths.map((path) => ({
-        id: uuidv4(),
-        image: path,
-        flipped: false,
-        matched: false,
-      }));
+      const shuffledCards = shuffleCards(cardImagePaths);
 
       if (preserveProgress) {
         return {
