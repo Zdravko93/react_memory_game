@@ -8,10 +8,11 @@ A fun, responsive memory card game built with React. Match pairs, track turns, a
   - [Game Features](#game-features)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My Process](#my-process)
-  - [Technologies Used](#technologies-used)
-  - [Plans for Future Enhancements](#plans-for-future-enhancements)
+- [Project Overview](#project-overview)
+- [Performance & Accessibility](#performance-and-accessibility)
+- [Technologies Used](#technologies-used)
 - [Installation & Usage](#installation-and-usage)
+- [Plans for Future Enhancements](#plans-for-future-enhancements)
 - [Author](#author)
 
 ## Overview
@@ -20,29 +21,27 @@ A fun, responsive memory card game built with React. Match pairs, track turns, a
 
 The goal of the game is to match pairs of cards. Users can:
 
-- Play the game with cards that are shuffled each time the game starts.
-- Click or hit enter or space buttons to flip cards to reveal their image and try to match pairs.
-- Track the number of moves and game log with player turns.
+- Play the game with cards that are shuffled each time the game starts
+- Click or press **Enter** or **Space** to flip cards and try to match pairs
+- Track the number of moves and view the game log with player turns
 - Restart the game once all pairs are matched.
 - Restart midgame
 - Change difficulty midgame
-- Read game log with turns played
+- Card flip and matched pair animations
 - See game difficulty level display
-- Card flip animations
-- Matched pair animations
-- Responsive design
-- Visually engaging
+- Responsive design for desktop, tablet, and mobile
+- Visually engaging interface
 
 ### Screenshot
 
-![Memory Game Screenshot](./react-memory-game.WebP)
+![Memory Game Screenshot](./react-memory-game.webp)
 
 ### Links
 
 - Solution URL: [GitHub Repository](https://github.com/Zdravko93/react_memory_game)
 - Live Site URL: [Live Demo](https://zdravko93.github.io/react_memory_game/)
 
-## My Process
+## Project Overview
 
 This project was built to practice my **React** skills, focusing on **state management** and **logic implementation**. I wanted to create a fun and interactive game that could also serve as a great learning experience for understanding how to handle dynamic data, manage state, and implement game logic in React.
 
@@ -50,13 +49,12 @@ This project was built to practice my **React** skills, focusing on **state mana
 
 The React Memory Game is optimized for performance and accessibility:
 
-- **Lighthouse Performance Score:** 95+
+- **Lighthouse Performance Score:** 100
 - **Accessibility:** Fully accessible with keyboard navigation
 - **Responsive Design:** Works on desktop, tablet, and mobile
 - **SEO:** Meta tags and Open Graph / Twitter cards implemented
 
-![Lighthouse mobile report]()
-![Lighthouse desktop report]()
+![Lighthouse report](/Lighthouse-report-mobile.png)
 
 ### Technologies Used
 
@@ -65,23 +63,9 @@ The React Memory Game is optimized for performance and accessibility:
 - `useReducer`, `useEffect`: State management and lifecycle hooks
 - `CSS Modules`: Scoped and maintainable styles
 
-### Plans for Future Enhancements
-
-Although the core gameplay is functional, several enhancements are planned to improve structure, usability, and scalability:
-
-- **Global State with useContext**
-  Replace multiple useState hooks with useContext to centralize state and avoid prop drilling, making state easier to manage across components.
-
-- **Difficulty Settings**
-  Add an option for players to choose difficulty (Easy, Medium, Hard), which will dynamically adjust the number of cards and layout.
-
-- **Improved Animations**
-  Introduce smoother transitions and subtle animations for card flips, matches, and resets to enhance user engagement.
-
-- **Scoring Feedback / Stats**
-  Display performance feedback such as accuracy, or player score at the end of the game.
-
 ## Installation
+
+Make sure you have Node.js v18+ installed
 
 Follow these steps to run this project locally:
 
@@ -97,6 +81,22 @@ Follow these steps to run this project locally:
    ```bash
    npm run dev
    ```
+
+### Plans for Future Enhancements
+
+Although the core gameplay is functional, several enhancements are planned to improve structure, usability, and scalability:
+
+- **Global State with useContext**
+  Replace multiple useState hooks with useContext to centralize state and avoid prop drilling
+
+- **Difficulty Settings**
+  Add an option for players to choose difficulty (Easy, Medium, Hard), which will dynamically adjust the number of cards and layout.
+
+- **Improved Animations**
+  Introduce smoother transitions and subtle animations for card flips, matches, and resets to enhance user engagement.
+
+- **Scoring Feedback / Stats**
+  Display accuracy, score, or performance feedback at the end of the game
 
 ## Author
 
