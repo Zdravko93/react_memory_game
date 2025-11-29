@@ -1,8 +1,10 @@
+import { v4 as uuidv4 } from "uuid";
+
 export function shuffleCards(images) {
   const paired = [...images, ...images];
   const shuffled = paired
-    .map((img, i) => ({
-      id: `${img}-${i}`,
+    .map((img) => ({
+      id: uuidv4(),
       image: img,
       flipped: false,
       matched: false,
@@ -13,7 +15,7 @@ export function shuffleCards(images) {
 
 export function createLogEntry(turn, match) {
   return {
-    id: `${turn}-${Date.now()}`, // unique id instead of 'index' as a key for future-proof code
+    id: uuidv4(), // unique id instead of 'index' as a key for future-proof code
     // avoids potential DOM bugs if entries are removed/edited later
     turn,
     time: new Date().toLocaleTimeString(),
