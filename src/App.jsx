@@ -15,6 +15,8 @@ export default function App() {
   const { state, startGame, flipCard, turnsLeft, restartGame, dispatch } =
     useAppState();
 
+  console.log(state.cards);
+
   return (
     <div role="application" aria-label="Memory Game Application">
       {!state.gameOver && (
