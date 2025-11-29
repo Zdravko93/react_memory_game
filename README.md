@@ -54,7 +54,7 @@ The React Memory Game is optimized for performance and accessibility:
 - **Responsive Design:** Works on desktop, tablet, and mobile
 - **SEO:** Meta tags and Open Graph / Twitter cards implemented
 
-![Lighthouse report](/Lighthouse-report-mobile.png)
+![Lighthouse report](/Lighthouse-report.png)
 
 ### Technologies Used
 
