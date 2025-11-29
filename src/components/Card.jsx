@@ -41,7 +41,7 @@ export default React.memo(function Card({
         loading="lazy"
         alt=""
         className={cardClasses["back-card"]}
-        aria-hidden={!flipped}
+        aria-hidden={flipped}
       />
     </Button>
   );
