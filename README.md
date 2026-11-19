@@ -114,5 +114,5 @@ Potential improvements for future iterations include:
 
 ## Author
 
-Github: [Zdravko93]([https://github.com/Zdravko93/react_memory_game](https://github.com/Zdravko93))
+Github: [Zdravko93](https://github.com/Zdravko93)
 Frontend Mentor: [@Zdravko93](https://www.frontendmentor.io/profile/Zdravko93)
