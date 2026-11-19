@@ -40,7 +40,7 @@ The game challenges players to find matching card pairs while keeping track of t
 
 ### Screenshot
 
-![React Memory Game Screenshot](./react-memory-game.webp)
+![React Memory Game Screenshot](./src/react-memory-game.webp)
 
 
 ## Technical Overview
